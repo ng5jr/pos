@@ -22,7 +22,7 @@ export async function ProductList() {
 	return (
 		<ul>
 			{datita.length !== 0 &&
-				datita.map((producto, index) => (
+				datita.map((producto: any, index) => (
 					<li key={index}>
 						<h2>{producto.Producto}</h2>
 						<p>Precio: {producto["Precio por Unidad"]}</p>
