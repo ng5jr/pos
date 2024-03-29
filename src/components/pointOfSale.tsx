@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 
 function PointOfSale({ prods }: any) {
 	const productos = prods;
-	console.log(productos);
 	const [venta, setVenta] = useState([]);
 	const [total, setTotal] = useState(0);
 
@@ -37,12 +36,13 @@ function PointOfSale({ prods }: any) {
 				<div>
 					<h2>INGRESE ORDEN</h2>
 					<ul>
-						{productos.map((producto: any, index: any) => (
-							<li key={index}>
-								{producto.Producto} - {producto["Precio por Unidad"]}
-								<button onClick={() => handleAddToCart(producto)}>Add to Cart</button>
-							</li>
-						))}
+						{productos.length !== 0 &&
+							productos.map((producto: any, index: any) => (
+								<li key={index}>
+									{producto.Producto} - {producto["Precio por Unidad"]}
+									<button onClick={() => handleAddToCart(producto)}>Add to Cart</button>
+								</li>
+							))}
 					</ul>
 					<h2>Cart</h2>
 					<ul>
